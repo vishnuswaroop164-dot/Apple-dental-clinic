@@ -13,6 +13,16 @@
 </head>
 <body>
 
+    <!-- ═══════ URGENCY TOP BAR ═══════ -->
+    <div class="urgency-bar" id="urgencyBar">
+        <div class="urgency-bar-inner">
+            <span class="urgency-pulse-dot"></span>
+            <span class="urgency-bar-text">⚡ Only a few same-day appointments left — <strong>secure your slot now before they fill up.</strong></span>
+            <a href="#booking" class="urgency-bar-cta">Book Now →</a>
+            <button class="urgency-bar-close" id="urgencyBarClose" aria-label="Close">✕</button>
+        </div>
+    </div>
+
     <!-- ═══════ NAVBAR ═══════ -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -23,6 +33,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#doctors">Doctors</a></li>
                 <li><a href="#testimonials">Results</a></li>
                 <li><a href="#booking">Book</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -47,6 +58,11 @@
                 <span class="hero-stars">★★★★★</span>
                 <span>4.9 Rating · 856 Reviews</span>
             </div>
+            <!-- Urgency: Slots Left Badge -->
+            <div class="slots-left-badge" id="slotsLeftBadge">
+                <span class="slots-pulse"></span>
+                <span>🟢 Only <strong id="slotsCount">3</strong> slots left today</span>
+            </div>
             <h1 class="hero-title">Apple Dental<br>Clinic</h1>
             <p class="hero-tagline"><span class="tagline-script">True wellness has no shortcuts.</span><br><span class="tagline-script">It starts with the mouth you trust.</span></p>
             <p class="hero-subtitle">Bengaluru's most trusted dental care — gentle treatments, honest advice, and smiles that last a lifetime.</p>
@@ -62,6 +78,13 @@
             <div class="scroll-arrow"></div>
         </div>
     </section>
+
+    <!-- ═══════ SOCIAL PROOF TICKER ═══════ -->
+    <div class="social-proof-ticker" id="socialProofTicker">
+        <div class="ticker-track" id="tickerTrack">
+            <!-- Dynamically populated by JS -->
+        </div>
+    </div>
 
     <!-- ═══════ ABOUT SECTION ═══════ -->
     <section class="about section" id="about">
@@ -126,6 +149,7 @@
                             <p class="service-desc">Pain-free root canal therapy that saves your natural tooth and stops infection.</p>
                             <span class="service-tag">Most Popular</span>
                         </div>
+                        <div class="service-offer-badge">🔥 Free X-ray this month</div>
                     </article>
 
                     <article class="service-card" tabindex="0" role="button" data-service="Teeth Whitening">
@@ -137,6 +161,7 @@
                             <p class="service-desc">Professional whitening that brightens your smile by several shades in one visit.</p>
                             <span class="service-tag">Quick Results</span>
                         </div>
+                        <div class="service-offer-badge">🔥 Free consultation included</div>
                     </article>
 
                     <article class="service-card" tabindex="0" role="button" data-service="Braces & Aligners">
@@ -302,6 +327,118 @@
         </div>
     </section>
 
+    <!-- ═══════ MEET OUR DOCTORS SECTION ═══════ -->
+    <section class="doctors section" id="doctors">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-label">Our Experts</span>
+                <h2 class="section-title">Meet the doctors behind <span class="text-accent">your smile</span></h2>
+                <p class="section-desc">Our team of specialist dentists brings decades of combined experience, advanced training, and a genuine passion for patient care.</p>
+            </div>
+
+            <div class="doctors-carousel reveal-up" style="--delay: 0.15s">
+                <div class="doctors-track" id="doctorsTrack">
+
+                    <div class="doctor-card" data-doctor="ananya" tabindex="0" role="button">
+                        <div class="doctor-img-wrap">
+                            <img src="images/doctor_ananya.png" alt="Dr. Ananya Sharma" class="doctor-img" loading="lazy">
+                            <div class="doctor-img-overlay">
+                                <span class="doctor-view-btn">View Profile →</span>
+                            </div>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Ananya Sharma</h3>
+                            <p class="doctor-specialty">Endodontist · Root Canal Specialist</p>
+                            <div class="doctor-meta">
+                                <span class="doctor-exp">12 yrs exp</span>
+                                <span class="doctor-rating">★ 4.9</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doctor-card" data-doctor="rajesh" tabindex="0" role="button">
+                        <div class="doctor-img-wrap">
+                            <img src="images/doctor_rajesh.png" alt="Dr. Rajesh Menon" class="doctor-img" loading="lazy">
+                            <div class="doctor-img-overlay">
+                                <span class="doctor-view-btn">View Profile →</span>
+                            </div>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Rajesh Menon</h3>
+                            <p class="doctor-specialty">Oral & Maxillofacial Surgeon</p>
+                            <div class="doctor-meta">
+                                <span class="doctor-exp">18 yrs exp</span>
+                                <span class="doctor-rating">★ 4.9</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doctor-card" data-doctor="priya" tabindex="0" role="button">
+                        <div class="doctor-img-wrap">
+                            <img src="images/doctor_priya.png" alt="Dr. Priya Iyer" class="doctor-img" loading="lazy">
+                            <div class="doctor-img-overlay">
+                                <span class="doctor-view-btn">View Profile →</span>
+                            </div>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Priya Iyer</h3>
+                            <p class="doctor-specialty">Orthodontist · Braces & Aligners</p>
+                            <div class="doctor-meta">
+                                <span class="doctor-exp">10 yrs exp</span>
+                                <span class="doctor-rating">★ 4.8</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doctor-card" data-doctor="vikram" tabindex="0" role="button">
+                        <div class="doctor-img-wrap">
+                            <img src="images/doctor_vikram.png" alt="Dr. Vikram Desai" class="doctor-img" loading="lazy">
+                            <div class="doctor-img-overlay">
+                                <span class="doctor-view-btn">View Profile →</span>
+                            </div>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Vikram Desai</h3>
+                            <p class="doctor-specialty">Prosthodontist · Implants & Cosmetic</p>
+                            <div class="doctor-meta">
+                                <span class="doctor-exp">15 yrs exp</span>
+                                <span class="doctor-rating">★ 4.9</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doctor-card" data-doctor="meera" tabindex="0" role="button">
+                        <div class="doctor-img-wrap">
+                            <img src="images/doctor_meera.png" alt="Dr. Meera Kulkarni" class="doctor-img" loading="lazy">
+                            <div class="doctor-img-overlay">
+                                <span class="doctor-view-btn">View Profile →</span>
+                            </div>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Meera Kulkarni</h3>
+                            <p class="doctor-specialty">Pediatric Dentist · Kids Specialist</p>
+                            <div class="doctor-meta">
+                                <span class="doctor-exp">8 yrs exp</span>
+                                <span class="doctor-rating">★ 4.9</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn carousel-prev" id="doctorsPrev" aria-label="Previous doctors">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="carousel-dots" id="doctorsDots"></div>
+                    <button class="carousel-btn carousel-next" id="doctorsNext" aria-label="Next doctors">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══════ TRUST SECTION ═══════ -->
     <section class="trust section" id="trust">
         <div class="container">
@@ -363,7 +500,39 @@
                 <div class="booking-info reveal-up">
                     <span class="section-label">Book a Visit</span>
                     <h2 class="section-title">Book Your <span class="text-accent">Appointment</span></h2>
-                    <p class="booking-desc">Choose a time that works for you. We'll confirm your slot within a few hours by phone or WhatsApp.</p>
+                    <p class="booking-desc">Choose a time that works for you. Most appointment windows fill fast, especially same-day and evening slots.</p>
+                    <div class="booking-alert">
+                        <span class="alert-chip">⚠️ Limited Availability</span>
+                        <p>Only <strong id="todaySlots">3</strong> slots remain for this week. Book now to secure the best time.</p>
+                    </div>
+
+                    <!-- Urgency: Countdown Timer -->
+                    <div class="booking-urgency-box" id="bookingUrgencyBox">
+                        <div class="urgency-countdown">
+                            <div class="countdown-label">⏱ Next available slot in</div>
+                            <div class="countdown-timer" id="countdownTimer">
+                                <div class="countdown-unit">
+                                    <span class="countdown-number" id="countHours">2</span>
+                                    <span class="countdown-text">hrs</span>
+                                </div>
+                                <span class="countdown-sep">:</span>
+                                <div class="countdown-unit">
+                                    <span class="countdown-number" id="countMinutes">14</span>
+                                    <span class="countdown-text">min</span>
+                                </div>
+                                <span class="countdown-sep">:</span>
+                                <div class="countdown-unit">
+                                    <span class="countdown-number" id="countSeconds">37</span>
+                                    <span class="countdown-text">sec</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="urgency-viewers">
+                            <span class="viewers-dot"></span>
+                            <span><strong id="viewerCount">14</strong> people viewing this page right now</span>
+                        </div>
+                        <p class="urgency-message" id="bookingUrgencyMessage">High demand right now — same-day slots are filling fast.</p>
+                    </div>
 
                     <div class="booking-features">
                         <div class="booking-feature">
@@ -492,6 +661,7 @@
                     <h4>Quick Links</h4>
                     <a href="#about">About Us</a>
                     <a href="#services">Our Services</a>
+                    <a href="#doctors">Our Doctors</a>
                     <a href="#testimonials">Patient Stories</a>
                     <a href="#booking">Book Appointment</a>
                 </div>
@@ -550,6 +720,158 @@
             <h3>Appointment Requested!</h3>
             <p>Thank you! We'll confirm your slot within a few hours via phone or WhatsApp.</p>
             <button class="btn btn-primary" id="modalClose">Got it</button>
+        </div>
+    </div>
+
+    <!-- ═══════ DOCTOR PROFILE OVERLAY ═══════ -->
+    <div class="doctor-overlay" id="doctorOverlay">
+        <div class="doctor-overlay-content" id="doctorOverlayContent">
+            <button class="doctor-overlay-close" id="doctorOverlayClose" aria-label="Close profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+
+            <!-- Hero Section -->
+            <div class="doc-profile-hero">
+                <div class="doc-profile-img-wrap">
+                    <img id="docProfileImg" src="" alt="" class="doc-profile-img">
+                </div>
+                <div class="doc-profile-intro">
+                    <div class="doc-profile-badge">Apple Dental Clinic</div>
+                    <h2 id="docProfileName" class="doc-profile-name"></h2>
+                    <p id="docProfileSpecialty" class="doc-profile-specialty"></p>
+                    <div class="doc-profile-stats">
+                        <div class="doc-stat">
+                            <strong id="docProfileExp"></strong>
+                            <span>Years Experience</span>
+                        </div>
+                        <div class="doc-stat">
+                            <strong id="docProfilePatients"></strong>
+                            <span>Happy Patients</span>
+                        </div>
+                        <div class="doc-stat">
+                            <strong id="docProfileRating"></strong>
+                            <span>Rating</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary doc-book-btn" id="docBookBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Book with this Doctor
+                    </a>
+                </div>
+            </div>
+
+            <!-- Qualifications -->
+            <div class="doc-section">
+                <h3 class="doc-section-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5"/></svg>
+                    Qualifications & Education
+                </h3>
+                <div class="doc-qual-list" id="docQualList"></div>
+            </div>
+
+            <!-- Specializations -->
+            <div class="doc-section">
+                <h3 class="doc-section-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    Areas of Specialization
+                </h3>
+                <div class="doc-spec-tags" id="docSpecTags"></div>
+            </div>
+
+            <!-- Treatments -->
+            <div class="doc-section">
+                <h3 class="doc-section-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Treatments Offered
+                </h3>
+                <div class="doc-treatments-grid" id="docTreatments"></div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="doc-section">
+                <h3 class="doc-section-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Patient Testimonials
+                </h3>
+                <div class="doc-testimonials" id="docTestimonials"></div>
+            </div>
+
+            <!-- Booking Form inside profile -->
+            <div class="doc-section doc-booking-section">
+                <h3 class="doc-section-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Book an Appointment
+                </h3>
+                <p class="doc-booking-desc">Schedule your visit with <span id="docBookingName"></span>. We'll confirm within a few hours.</p>
+                <form class="booking-form doc-booking-form" id="docBookingForm">
+                    <div class="form-group">
+                        <label for="docPatientName">Your Name</label>
+                        <input type="text" id="docPatientName" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="docPatientPhone">Phone Number</label>
+                        <input type="tel" id="docPatientPhone" name="phone" placeholder="+91 98765 43210" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="docPrefDate">Preferred Date</label>
+                            <input type="date" id="docPrefDate" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="docPrefTime">Preferred Time</label>
+                            <select id="docPrefTime" name="time" required>
+                                <option value="" disabled selected>Select time</option>
+                                <option>9:00 AM</option>
+                                <option>10:00 AM</option>
+                                <option>11:00 AM</option>
+                                <option>12:00 PM</option>
+                                <option>2:00 PM</option>
+                                <option>3:00 PM</option>
+                                <option>4:00 PM</option>
+                                <option>5:00 PM</option>
+                                <option>6:00 PM</option>
+                                <option>7:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="docServiceNeeded">Service Needed</label>
+                        <select id="docServiceNeeded" name="service" required>
+                            <option value="" disabled selected>Choose a service</option>
+                            <option>General Check-up & Cleaning</option>
+                            <option>Root Canal Treatment</option>
+                            <option>Teeth Whitening</option>
+                            <option>Braces / Aligners</option>
+                            <option>Dental Implants</option>
+                            <option>Cosmetic Dentistry</option>
+                            <option>Kids Dentistry</option>
+                            <option>Emergency / Toothache</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docPatientMessage">Message <span class="optional">(optional)</span></label>
+                        <textarea id="docPatientMessage" name="message" rows="3" placeholder="Any specific concerns or questions..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-full" id="docSubmitBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Confirm Appointment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ SOCIAL PROOF TOAST ═══════ -->
+    <div class="social-proof-toast" id="socialProofToast">
+        <div class="toast-content">
+            <div class="toast-icon">🔥</div>
+            <div class="toast-text">
+                <strong id="toastName">Priya M.</strong>
+                <span id="toastAction">booked a Root Canal appointment</span>
+                <small id="toastTime">Just now</small>
+                <span class="toast-hint" id="toastHint">Same-day slots are filling up — book before evening availability closes.</span>
+            </div>
         </div>
     </div>
 
