@@ -657,70 +657,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ══════════════════════════════════════
-       SOCIAL PROOF TICKER
-       ══════════════════════════════════════ */
-    const tickerTrack = document.getElementById('tickerTrack');
-    const tickerMessages = [
-        { name: 'Priya M.', action: 'booked a Root Canal appointment', time: 'Just now', hint: 'Same-day slots are filling up fast.' },
-        { name: 'Raghav K.', action: 'booked a Dental Implant consultation', time: '15 min ago', hint: 'Only a few premium times remain this week.' },
-        { name: 'Ananya S.', action: 'booked Teeth Whitening', time: '30 min ago', hint: 'Evening slots are nearly full.' },
-        { name: 'Venkatesh R.', action: 'booked a Family Check-up', time: '45 min ago', hint: 'Quick confirmation available today.' },
-        { name: 'Sneha B.', action: 'scheduled Kids Dentistry', time: 'Just now', hint: 'Child-friendly appointments are limited.' },
-        { name: 'Karthik S.', action: 'booked a Braces consultation', time: '20 min ago', hint: 'Popular appointment times are selling out.' },
-        { name: 'Megha T.', action: 'booked a Smile Makeover review', time: '1 hour ago', hint: 'High demand for cosmetic slot openings.' },
-        { name: 'Arun V.', action: 'secured an Emergency appointment', time: '10 min ago', hint: 'Emergency slots are very limited today.' },
-        { name: 'Deepa K.', action: 'booked an Invisalign consult', time: '35 min ago', hint: 'Weekend slots filling quickly.' },
-        { name: 'Suresh P.', action: 'booked Wisdom Tooth removal', time: 'Just now', hint: 'Latest appointment booked — secure yours now.' },
-    ];
-
-    function populateTicker() {
-        // Duplicate items for seamless loop
-        const allItems = [...tickerMessages, ...tickerMessages];
-        tickerTrack.innerHTML = allItems.map(item => `
-            <span class="ticker-item">
-                <span class="ticker-dot"></span>
-                <strong>${item.name}</strong> ${item.action} · <em>${item.time}</em>
-            </span>
-        `).join('');
-    }
-
-    populateTicker();
-
-
-    /* ══════════════════════════════════════
-       SOCIAL PROOF TOAST (Pop-up)
-       ══════════════════════════════════════ */
-    const toast = document.getElementById('socialProofToast');
-    const toastName = document.getElementById('toastName');
-    const toastAction = document.getElementById('toastAction');
-    const toastTime = document.getElementById('toastTime');
-    const toastHint = document.getElementById('toastHint');
-    let toastIndex = 0;
-
-    function showToast() {
-        const item = tickerMessages[toastIndex % tickerMessages.length];
-        toastName.textContent = item.name;
-        toastAction.textContent = item.action;
-        toastTime.textContent = item.time;
-        toastHint.textContent = item.hint || 'High demand right now — book your slot before availability closes.';
-
-        toast.classList.add('visible');
-
-        setTimeout(() => {
-            toast.classList.remove('visible');
-        }, 4500);
-
-        toastIndex++;
-    }
-
-    // Show first toast immediately, then every 15-25 seconds
-    showToast();
-    setInterval(() => {
-        showToast();
-    }, 15000 + Math.random() * 10000);
-
-
-    /* ══════════════════════════════════════
        URGENCY: COUNTDOWN TIMER
        ══════════════════════════════════════ */
     let totalSeconds = 2 * 3600 + 14 * 60 + 37; // 2h 14m 37s
@@ -765,27 +701,14 @@ document.addEventListener('DOMContentLoaded', () => {
        URGENCY: SLOTS COUNT
        ══════════════════════════════════════ */
     const slotsCount = document.getElementById('slotsCount');
-    const todaySlots = document.getElementById('todaySlots');
     const bookingUrgencyMessage = document.getElementById('bookingUrgencyMessage');
-    let currentSlots = 3;
 
     function updateSlots() {
-        // Slowly decrease from 3 to 1, then reset
-        if (Math.random() > 0.65 && currentSlots > 1) {
-            currentSlots--;
-        } else if (currentSlots <= 1) {
-            currentSlots = Math.floor(Math.random() * 2) + 2; // 2-3
-        }
-
-        const urgencyText = currentSlots <= 2 ? 'Hurry — only a couple of slots left today.' : 'Good news: a few slots are still available.';
-
-        if (slotsCount) slotsCount.textContent = currentSlots;
-        if (todaySlots) todaySlots.textContent = currentSlots;
-        if (bookingUrgencyMessage) bookingUrgencyMessage.textContent = urgencyText;
+        if (slotsCount) slotsCount.textContent = 'few';
+        if (bookingUrgencyMessage) bookingUrgencyMessage.textContent = 'A few slots are available — choose a time that suits you.';
     }
 
     updateSlots();
-    setInterval(updateSlots, 25000);
 
 
     /* ══════════════════════════════════════
