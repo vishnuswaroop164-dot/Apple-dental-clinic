@@ -84,6 +84,7 @@
 }
 
 html {
+    min-height: 100%;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     scroll-padding-top: calc(var(--nav-height) + var(--urgency-bar-height));
@@ -111,10 +112,22 @@ textarea,
     -webkit-tap-highlight-color: transparent;
 }
 
-img {
+img,
+video {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+.service-card,
+.doctor-card {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 a {
@@ -2762,8 +2775,18 @@ body.js .reveal-up.revealed {
     }
 
     .service-card {
-        flex: 0 0 82vw;
+        flex: 0 0 min(88vw, 320px);
         padding: 1rem;
+    }
+
+    .doctor-card {
+        flex: 0 0 min(88vw, 320px);
+    }
+
+    .hero-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        max-width: 100%;
     }
 
     .booking-form-wrap {
