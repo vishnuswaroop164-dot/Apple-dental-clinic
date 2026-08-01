@@ -1253,14 +1253,16 @@ body.js .service-card.swiped-in {
     transform: translateX(0);
 }
 
-body.js .doctor-card {
-    opacity: 0;
-    transform: translateX(60px);
-}
-
 .doctor-card.swiped-in {
     opacity: 1;
     transform: translateX(0);
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.doctor-card {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
 }
 
 .doctor-card:nth-child(1) { transition-delay: 0.05s; }
